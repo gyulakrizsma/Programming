@@ -1,0 +1,6 @@
+C:\Work\Programming\General Algorithms\Binary Search Trees\C#\BST\BST\bin\Debug\BST.exe.config
+C:\Work\Programming\General Algorithms\Binary Search Trees\C#\BST\BST\bin\Debug\BST.exe
+C:\Work\Programming\General Algorithms\Binary Search Trees\C#\BST\BST\bin\Debug\BST.pdb
+C:\Work\Programming\General Algorithms\Binary Search Trees\C#\BST\BST\obj\Debug\BST.csprojResolveAssemblyReference.cache
+C:\Work\Programming\General Algorithms\Binary Search Trees\C#\BST\BST\obj\Debug\BST.exe
+C:\Work\Programming\General Algorithms\Binary Search Trees\C#\BST\BST\obj\Debug\BST.pdb
