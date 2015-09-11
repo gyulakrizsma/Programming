@@ -34,6 +34,34 @@ namespace BST
                     Left.AddRecursive(data);
             }
         }
+
+        public Node FindAndDeleteNode(int data)
+        {
+            if (Value == data)
+                return this;
+            if (data > Value)
+            {
+                if (Right != null)
+                {
+                    var result = Right.FindAndDeleteNode(data);
+                    if (Right.Value == data)
+                        Right = null;
+                    return result;
+                }    
+            }
+            else
+            {
+                if (Left != null)
+                {
+                    var result = Left.FindAndDeleteNode(data);
+                    if (Left.Value == data)
+                        Left = null;
+                    return result;
+                }
+            }
+
+            return null;
+        }
     }
 
     public class MyBst
@@ -176,12 +204,49 @@ namespace BST
                 }
             }
         }
+
+        private Node FindAndDeleteNode(int data)
+        {
+            if (Top == null)
+            {
+                Console.WriteLine("Top is empty");
+            }
+            else
+            {
+                return Top.FindAndDeleteNode(data);
+            }
+            return null;
+        }
+
+        private void PostOrderDelete(Node node)
+        {
+            if (node != null)
+                PostOrderDelete(node.Left);
+
+            if (node != null)
+                PostOrderDelete(node.Right);
+
+            if (node != null)
+            {
+                node.Right = null;
+                node.Left = null;
+            }
+
+        }
+
+        public void Delete(int data)
+        {
+            var node = FindAndDeleteNode(data);
+
+            PostOrderDelete(node);
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
+            if (args == null) throw new ArgumentNullException(nameof(args));
             var myBst = new MyBst();
 
             //myBst.AddRecursive(20);
@@ -217,6 +282,9 @@ namespace BST
             Console.WriteLine();
             myBst.Min();
             myBst.Max();
+            myBst.Delete(45);
+            myBst.PreOrderTraverse(myBst.Top);
+
             Console.ReadLine();
         }
     }
