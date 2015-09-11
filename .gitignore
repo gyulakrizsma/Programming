@@ -2,3 +2,6 @@ General Algorithms/Linked Lists/C#/LinkedList/.vs/LinkedList/v14/.suo
 *.suo
 *.exe
 General Algorithms/Binary Search Trees/C#/BST/BST/bin/Debug/BST.pdb
+*.suo
+*.exe
+*.pdb

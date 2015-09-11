@@ -45,7 +45,7 @@ namespace LinkedList
             {
                 var temp = new Node(data);
                 temp.Next = Next;
-                this.Next = temp;
+                Next = temp;
             }
             else
                 Next.AddSorted(data);
@@ -102,6 +102,24 @@ namespace LinkedList
             {
                 Next.Max(max);
             }
+        }
+
+        public void Delete(int data)
+        {
+            if (Next == null)
+                return;
+            if (Next.Value == data)
+            {
+                if (Next.Next == null)
+                {
+                    Next = null;
+                    return;
+                }
+                var futureNext = Next.Next;
+                Next = futureNext;
+                return;
+            }
+            Next.Delete(data);
         }
     }
 
@@ -193,17 +211,41 @@ namespace LinkedList
             }
         }
 
+        public void Delete(int data)
+        {
+            if (Head == null)
+            {
+                Console.WriteLine("Head is empty");
+                return;
+            }
+            if (Head.Value == data) //We delete the head
+            {
+                if (Head.Next == null)
+                {
+                    Head = null;
+                    return;
+                }
+                Head = Head.Next;
+            }
+            else
+            {
+                Head.Delete(data);
+            }
+        }
+
         public void Print()
         {
             Head.Print();
             Console.WriteLine();
         }
+
     }
 
     class Program
     {
         static void Main(string[] args)
         {
+            if (args == null) throw new ArgumentNullException(nameof(args));
             var myList = new MyList();
 
             //myList.AddToEnd(5);
@@ -229,6 +271,9 @@ namespace LinkedList
             myList.Find(7);
             myList.Min();
             myList.Max();
+
+            myList.Delete(7);
+            myList.Print();
 
             Console.ReadLine();
         }

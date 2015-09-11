@@ -49,6 +49,18 @@ class Node:
 		else:
 			self.Next.maxItem(maxValue);			
 	
+	def delete(self, data):
+		if(self.Next == None):
+			return;
+		if(self.Next.value == data):
+			if(self.Next.Next == None):
+				self.Next = None;
+				return;
+			else:
+				self.Next = self.Next.Next;
+				return;
+		self.Next.delete(data);
+	
 	def printList(self):
 		print str(self.value) + " => ",
 
@@ -100,9 +112,22 @@ class MyList:
 		else:
 			self.Head.maxItem(self.Head.value);
 	
+	def delete(self, data):
+		if(self.Head == None):
+			print "Head is empty";
+			return;
+		if(self.Head.value == data):
+			if(self.Head.Next == None):
+				self.Head = None;
+			else:
+				self.Head = self.Head.Next;
+		else:
+			self.Head.delete(data);
+			
+	
 	def printList(self):
 		self.Head.printList();
-
+		
 myList = MyList()
 
 # myList.addToEnd(5)
@@ -134,3 +159,6 @@ print ""
 myList.find(11)
 myList.minItem()
 myList.maxItem()
+print ""
+myList.delete(7);
+myList.printList();
