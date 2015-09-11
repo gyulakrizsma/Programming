@@ -16,7 +16,34 @@ class Node:
 				self.Left = Node(data);
 			else:
 				self.Left.AddRecursive(data);
-		
+	
+	def FindNodeAndDelete(self, data):
+		if(self.value == data):
+			return self;
+		elif(data > self.value):
+			if(self.Right != None):
+				result = self.Right.FindNode(data);
+				if(self.Right.value == data):
+					self.Right = None;
+				return result;
+		else:
+			if(self.Left != None):
+				result = self.Left.FindNode(data);
+				if(self.Left.value == data):
+					self.Left = None;
+				return result;
+	
+	def FindNode(self, data):
+		if(self.value == data):
+			return self;
+		elif(data > self.value):
+			if(self.Right != None):
+				return self.Right.FindNode(data);
+		else:
+			if(self.Left != None):
+				print self.value
+				return self.Left.FindNode(data);
+	
 class MyBst:
 	
 	def __init__(self):
@@ -100,7 +127,38 @@ class MyBst:
 					return current.value;
 				else:
 					current = current.Right;
+	
+	def FindNode(self, data):
+		if(self.Top == None):
+			print "Top is empty";
+			return;
+		else:
+			return self.Top.FindNode(data);
+	
+	def FindNodeAndDelete(self, data):
+		if(self.Top == None):
+			print "Top is empty";
+			return;
+		else:
+			return self.Top.FindNodeAndDelete(data);
+	
+	def PostOrderDelete(self, node):
+		if(node != None):
+			self.PostOrderDelete(node.Left);
+		if(node != None):
+			self.PostOrderDelete(node.Right);
+		if(node != None):
+			node.Left = None; #Delete				
+			node.Right = None; #Delete				
+			node = None; #Delete
 			
+	def Delete(self, data):
+		
+		# Finds the node with the data and deletes the reference to it
+		node = self.FindNodeAndDelete(data);
+				
+		# Does the actual deletion
+		self.PostOrderDelete(node);
 		
 myBst = MyBst();
 # myBst.Add(20);
@@ -132,3 +190,6 @@ print "InOrderTraverse is: ", myBst.InOrderTraverse(myBst.Top);
 print "PostOrderTraverse is: ", myBst.PostOrderTraverse(myBst.Top);
 print "The minimum value of the tree is: ", myBst.Min();
 print "The maximum value of the tree is: ", myBst.Max();
+
+myBst.Delete(25);
+myBst.PreOrderTraverse(myBst.Top);
