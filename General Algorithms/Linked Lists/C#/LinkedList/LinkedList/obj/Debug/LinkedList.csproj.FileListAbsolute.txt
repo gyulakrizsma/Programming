@@ -1,0 +1,6 @@
+C:\Work\Programming\General Algorithms\Linked Lists\C#\LinkedList\LinkedList\bin\Debug\LinkedList.exe.config
+C:\Work\Programming\General Algorithms\Linked Lists\C#\LinkedList\LinkedList\bin\Debug\LinkedList.exe
+C:\Work\Programming\General Algorithms\Linked Lists\C#\LinkedList\LinkedList\bin\Debug\LinkedList.pdb
+C:\Work\Programming\General Algorithms\Linked Lists\C#\LinkedList\LinkedList\obj\Debug\LinkedList.csprojResolveAssemblyReference.cache
+C:\Work\Programming\General Algorithms\Linked Lists\C#\LinkedList\LinkedList\obj\Debug\LinkedList.exe
+C:\Work\Programming\General Algorithms\Linked Lists\C#\LinkedList\LinkedList\obj\Debug\LinkedList.pdb
